@@ -32,6 +32,12 @@ pipeline {
                 sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; cd /var/lib/jenkins/workspace/new/jenkins/ terraform plan '
             }
         }
+        stage('terraform apply') {
+            steps {
+                sh 'cd /var/lib/jenkins/workspace/new/jenkins/ terraform apply -input=false tfplan'
+            }
+        }
+        
         stage('terraform ended') {
             steps {
                 sh 'echo "Ended....!!"'
