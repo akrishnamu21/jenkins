@@ -19,7 +19,7 @@ pipeline {
         }
         stage('tfsvars create'){
             steps {
-                sh 'cp /home/smadmin/vars.tf /var/lib/jenkins/workspace/new/jenkins/'
+                sh 'sudo cp /home/smadmin/vars.tf /var/lib/jenkins/workspace/new/jenkins/'
             }
         }
         stage('terraform init') {
