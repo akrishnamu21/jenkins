@@ -29,7 +29,7 @@ pipeline {
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; /home/smadmin/terraform plan /var/lib/jenkins/workspace/new/jenkins/'
+                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; cd /var/lib/jenkins/workspace/new/jenkins/ terraform plan '
             }
         }
         stage('terraform ended') {
