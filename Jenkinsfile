@@ -24,12 +24,12 @@ pipeline {
         }
         stage('terraform init') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/new/jenkins/ terraform init'
+                sh 'cd /var/lib/jenkins/workspace/new/jenkins/ terraform init -input=false'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; cd /var/lib/jenkins/workspace/new/jenkins/ terraform plan '
+                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; cd /var/lib/jenkins/workspace/new/jenkins/ terraform plan -out=tfplan -input=false'
             }
         }
         stage('terraform apply') {
