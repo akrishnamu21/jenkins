@@ -19,17 +19,17 @@ pipeline {
         }
         stage('tfsvars create'){
             steps {
-                sh 'sudo cp /home/smadmin/vars.tf /home/smadmin/jenkins/'
+                sh 'cp /home/smadmin/vars.tf /var/lib/jenkins/workspace/new/jenkins/'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /home/smadminr/terraform init /home/smadmin/jenkins'
+                sh '/home/smadminr/terraform init /var/lib/jenkins/workspace/new/jenkins/'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins; sudo /home/smadmin/terraform plan /home/smadmin/jenkins'
+                sh 'ls /var/lib/jenkins/workspace/new/jenkins/; /home/smadmin/terraform plan /var/lib/jenkins/workspace/new/jenkins/'
             }
         }
         stage('terraform ended') {
