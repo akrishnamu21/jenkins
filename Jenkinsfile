@@ -24,12 +24,12 @@ pipeline {
         }
         stage('terraform init') {
             steps {
-                sh '/home/smadminr/terraform init /var/lib/jenkins/workspace/new/jenkins/'
+                sh 'sudo /home/smadminr/terraform init /var/lib/jenkins/workspace/new/jenkins/'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls /var/lib/jenkins/workspace/new/jenkins/; /home/smadmin/terraform plan /var/lib/jenkins/workspace/new/jenkins/'
+                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; /home/smadmin/terraform plan /var/lib/jenkins/workspace/new/jenkins/'
             }
         }
         stage('terraform ended') {
