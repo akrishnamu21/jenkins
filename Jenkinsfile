@@ -29,7 +29,7 @@ pipeline {
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; cd /var/lib/jenkins/workspace/new/jenkins/; terraform plan -out=tfplan -input=false'
+                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; sudo terraform plan -out=tfplan -input=false/var/lib/jenkins/workspace/new/jenkins/; '
             }
         }
         stage('terraform apply') {
