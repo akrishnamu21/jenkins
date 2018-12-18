@@ -24,7 +24,7 @@ pipeline {
         }
         stage('terraform init') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/new/jenkins/;terraform init -input=false'
+                sh 'sudo terraform init -input=false /var/lib/jenkins/workspace/new/jenkins/;'
             }
         }
         stage('terraform plan') {
