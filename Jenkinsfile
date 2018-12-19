@@ -38,7 +38,7 @@ pipeline {
         stage('terraform apply') {
             steps {
                 //sh 'cd /var/lib/jenkins/workspace/new/jenkins/; terraform apply -input=false tfplan'
-                 sh '/usr/local/bin/terraform apply -input=false ./jenkins'
+                 sh '/usr/local/bin/terraform apply -no-color -auto-approve ./jenkins'
             }
         }
         
