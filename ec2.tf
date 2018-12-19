@@ -16,8 +16,6 @@ data "aws_ami" "ubuntu" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-
-  owners = ["099720109477"]
 }
 
 resource "aws_instance" "web" {
