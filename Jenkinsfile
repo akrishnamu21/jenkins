@@ -14,7 +14,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh 'rm -r *; git clone https://github.com/akrishnamu21/jenkins.git'
+                sh 'sudo rm -r *; git clone https://github.com/akrishnamu21/jenkins.git'
             }
         }
         stage('tfsvars create'){
