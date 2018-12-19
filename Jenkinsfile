@@ -25,17 +25,20 @@ pipeline {
         stage('terraform init') {
             steps {
                 //sh 'terraform init -input=false /var/lib/jenkins/workspace/new/jenkins/;'
-                sh '/usr/local/bin/terraform init ./jenkins'
+                sh '/usr/local/bin/terraform init -input=false ./jenkins'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; sudo terraform plan -out=tfplan -input=false/var/lib/jenkins/workspace/new/jenkins/; '
+                //sh 'sudo ls /var/lib/jenkins/workspace/new/jenkins/; sudo terraform plan -out=tfplan -input=false/var/lib/jenkins/workspace/new/jenkins/; '
+                sh '/usr/local/bin/terraform plan -out=tfplan -input=false ./jenkins'
             }
+            
         }
         stage('terraform apply') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/new/jenkins/; terraform apply -input=false tfplan'
+                //sh 'cd /var/lib/jenkins/workspace/new/jenkins/; terraform apply -input=false tfplan'
+                 sh '/usr/local/bin/terraform apply -input=false tfplan ./jenkins'
             }
         }
         
