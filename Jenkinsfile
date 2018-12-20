@@ -12,7 +12,13 @@ pipeline {
                 sh 'echo "Started...!" '
             }
         }
-        stage('git clone') {
+        stage('terraform destroy') {
+            steps {
+                sh '/usr/local/bin/terraform destroy -no-color -auto-approve ./jenkins'
+            }
+        }
+        
+       /*stage('git clone') {
             steps {
                 sh 'sudo rm -r *; git clone https://github.com/akrishnamu21/jenkins.git'
             }
@@ -46,6 +52,6 @@ pipeline {
             steps {
                 sh 'echo "Ended....!!"'
             }
-        }  
+        } */ 
     }
 }
